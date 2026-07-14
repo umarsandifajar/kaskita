@@ -41,6 +41,58 @@ fetch(API)
         }
 
         // ===========================
+        // INFORMASI REKENING
+        // ===========================
+
+        if (data.rekeningNama && data.rekeningNomor) {
+
+            document.getElementById("rekeningNama").textContent =
+                data.rekeningNama;
+
+            document.getElementById("rekeningNomor").textContent =
+                data.rekeningNomor;
+
+            document
+                .getElementById("btnCopyRekening")
+                .classList.remove("hidden");
+
+            document
+                .getElementById("btnCopyRekening")
+                .onclick = () => {
+
+                    navigator.clipboard.writeText(data.rekeningNomor);
+
+                    alert("Nomor rekening berhasil disalin.");
+
+                };
+
+        }
+
+        // ===========================
+        // LAYANAN KELAS
+        // ===========================
+
+        if (data.serviceTitle && data.serviceLink) {
+
+            document.getElementById("layananKelas").innerHTML = `
+                <a href="${data.serviceLink}"
+                   target="_blank"
+                   class="block bg-blue-600 hover:bg-blue-700 text-white rounded-xl p-4 transition">
+
+                    <div class="font-semibold">
+                        🔗 ${data.serviceTitle}
+                    </div>
+
+                    <div class="text-sm text-blue-100 mt-1">
+                        Klik untuk membuka layanan.
+                    </div>
+
+                </a>
+            `;
+
+        }
+
+        // ===========================
         // RINGKASAN
         // ===========================
 
@@ -55,6 +107,7 @@ fetch(API)
         // ===========================
 
         const transaksi = document.getElementById("transaksi");
+
         transaksi.innerHTML = "";
 
         if (data.transaksi && data.transaksi.length > 0) {

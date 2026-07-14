@@ -1,63 +1,276 @@
 <!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Kas Kelas 3</title><script src="https://cdn.tailwindcss.com"></script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>body{font-family:Inter,sans-serif;background:#eef3fb;}</style></head>
-<body><div class="max-w-5xl mx-auto p-6">
-<div class="flex items-center justify-between mb-8">
-<div><h1 class="text-4xl font-bold">💰 Kas Kita</h1><p class="text-gray-500">KELAS 3</p></div>
-<a id="waBtn" href="#" target="_blank" class="hidden inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow transition">🟢 Bendahara</a>
-</div>
-<div class="bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl p-8 text-white shadow-xl"><p class="text-lg">Saldo Kas</p><h2 id="saldo" class="text-5xl font-bold mt-3">Rp0</h2></div>
-<div class="grid md:grid-cols-3 gap-5 mt-6">
-<div class="bg-white rounded-3xl p-6 shadow"><p class="text-gray-500">Pemasukan</p><h3 id="masuk" class="text-3xl font-bold text-green-600 mt-2">Rp0</h3></div>
-<div class="bg-white rounded-3xl p-6 shadow"><p class="text-gray-500">Pengeluaran</p><h3 id="keluar" class="text-3xl font-bold text-red-500 mt-2">Rp0</h3></div>
-<div class="bg-white rounded-3xl p-6 shadow"><p class="text-gray-500">📢 Informasi</p><p id="message" class="font-semibold text-gray-700 mt-3">Memuat informasi...</p></div>
-</div>
-<div class="grid lg:grid-cols-2 gap-6 mt-8">
-<div class="bg-white rounded-3xl p-6 shadow"><h2 class="text-xl font-bold mb-5">📜 Transaksi Terbaru</h2><div id="transaksi"></div></div>
-<div class="bg-white rounded-3xl p-6 shadow">
+<html lang="id">
 
-    <h2 class="text-xl font-bold mb-5">
-        📊 Ringkasan
-    </h2>
+<head>
 
-    <div class="space-y-5">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <div class="flex justify-between items-center">
+<title>Kas Kita</title>
 
-            <span class="text-gray-500">
-                Total Transaksi
-            </span>
+<script src="https://cdn.tailwindcss.com"></script>
 
-            <strong id="jumlahTransaksi" class="text-lg">
-                0
-            </strong>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    font-family: Inter, sans-serif;
+    background:#eef3fb;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="max-w-5xl mx-auto p-6">
+
+    <!-- HEADER -->
+
+    <div class="flex items-center justify-between mb-8">
+
+        <div>
+
+            <h1 class="text-4xl font-bold">
+                💰 Kas Kita
+            </h1>
+
+            <p class="text-gray-500">
+                KELAS 3 AT TAUBAH
+            </p>
 
         </div>
 
-        <div class="flex justify-between items-center">
+        <a
+            id="waBtn"
+            href="#"
+            target="_blank"
+            class="hidden inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow transition">
 
-            <span class="text-gray-500">
-                Terakhir Diperbarui
-            </span>
+            🟢 Bendahara
 
-            <strong id="update" class="text-right text-sm">
-                -
-            </strong>
+        </a>
+
+    </div>
+
+    <!-- SALDO -->
+
+    <div class="bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl p-8 text-white shadow-xl">
+
+        <p class="text-lg">
+            Saldo Kas
+        </p>
+
+        <h2 id="saldo" class="text-5xl font-bold mt-3">
+            Rp0
+        </h2>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="grid md:grid-cols-3 gap-5 mt-6">
+
+        <div class="bg-white rounded-3xl p-6 shadow">
+
+            <p class="text-gray-500">
+                Pemasukan
+            </p>
+
+            <h3 id="masuk" class="text-3xl font-bold text-green-600 mt-2">
+                Rp0
+            </h3>
 
         </div>
 
-        <div class="flex justify-between items-center">
+        <div class="bg-white rounded-3xl p-6 shadow">
 
-            <span class="text-gray-500">
-                Status Data
-            </span>
+            <p class="text-gray-500">
+                Pengeluaran
+            </p>
 
-            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">
-                🟢 Sinkron
-            </span>
+            <h3 id="keluar" class="text-3xl font-bold text-red-500 mt-2">
+                Rp0
+            </h3>
+
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 shadow">
+
+            <p class="text-gray-500">
+                📢 Informasi
+            </p>
+
+            <p id="message" class="font-semibold text-gray-700 mt-3">
+                Memuat informasi...
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- PEMBAYARAN KAS -->
+
+    <div class="bg-white rounded-3xl shadow p-6 mt-6">
+
+        <h2 class="text-xl font-bold mb-5">
+            💳 Pembayaran Kas
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <div>
+
+                <p class="text-sm text-gray-500">
+                    Bank
+                </p>
+
+                <h3 id="bank" class="text-lg font-semibold mt-1">
+                    -
+                </h3>
+
+            </div>
+
+            <div>
+
+                <p class="text-sm text-gray-500">
+                    Nomor Rekening
+                </p>
+
+                <div class="flex items-center gap-3 mt-1">
+
+                    <span
+                        id="rekening"
+                        class="text-lg font-bold tracking-wide">
+
+                        -
+
+                    </span>
+
+                    <button
+                        id="copyRekening"
+                        class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-3 py-1 rounded-lg transition">
+
+                        📋 Salin
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <p class="text-sm text-gray-500">
+                    Atas Nama
+                </p>
+
+                <h3 id="atasNama" class="text-lg font-semibold mt-1">
+                    -
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- LAYANAN KELAS -->
+
+    <div class="bg-white rounded-3xl shadow p-6 mt-6">
+
+        <h2 class="text-xl font-bold mb-5">
+            🔗 Layanan Kelas
+        </h2>
+
+        <div id="layananKelas">
+
+            <div class="text-gray-400">
+                Belum ada layanan tersedia.
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- KONTEN -->
+
+    <div class="grid lg:grid-cols-2 gap-6 mt-8">
+
+        <!-- TRANSAKSI -->
+
+        <div class="bg-white rounded-3xl p-6 shadow">
+
+            <h2 class="text-xl font-bold mb-5">
+                📜 Transaksi Terbaru
+            </h2>
+
+            <div id="transaksi"></div>
+
+        </div>
+
+        <!-- RINGKASAN -->
+
+        <div class="bg-white rounded-3xl p-6 shadow">
+
+            <h2 class="text-xl font-bold mb-5">
+                📊 Ringkasan
+            </h2>
+
+            <div class="space-y-5">
+
+                <div class="flex justify-between items-center">
+
+                    <span class="text-gray-500">
+                        Total Transaksi
+                    </span>
+
+                    <strong id="jumlahTransaksi" class="text-lg">
+                        0
+                    </strong>
+
+                </div>
+
+                <div class="flex justify-between items-center">
+
+                    <span class="text-gray-500">
+                        Terakhir Diperbarui
+                    </span>
+
+                    <strong id="update" class="text-right text-sm">
+                        -
+                    </strong>
+
+                </div>
+
+                <div class="flex justify-between items-center">
+
+                    <span class="text-gray-500">
+                        Status Data
+                    </span>
+
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">
+
+                        🟢 Sinkron
+
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
 </div>
-</div><script src="js/app.js"></script></body></html>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

@@ -85,27 +85,27 @@ document.getElementById("btnMasuk").addEventListener("click",async()=>{
 
     }
 
-    const tanggal=new Date().toISOString().substring(0,10);
+    const tanggal = new Date().toISOString();
 
-    const res=await fetch(API,{
+    const res = await fetch(API, {
 
-        method:"POST",
+    method: "POST",
 
-        body:JSON.stringify({
+    body: JSON.stringify({
 
-            action:"tambahMasuk",
+        action: "tambahMasuk",
 
-            pin:ADMIN_PIN,
+        pin: ADMIN_PIN,
 
-            tanggal:tanggal,
+        tanggal: tanggal,
 
-            nama:nama,
+        nama: nama,
 
-            nominal:nominal,
+        nominal: nominal,
 
-            keterangan:keterangan
+        keterangan: keterangan
 
-        })
+    })
 
     });
 
@@ -146,25 +146,25 @@ document.getElementById("btnKeluar").addEventListener("click",async()=>{
 
     }
 
-    const tanggal=new Date().toISOString().substring(0,10);
+    const tanggal = new Date().toISOString();
 
-    const res=await fetch(API,{
+    const res = await fetch(API, {
 
-        method:"POST",
+    method: "POST",
 
-        body:JSON.stringify({
+    body: JSON.stringify({
 
-            action:"tambahKeluar",
+        action: "tambahKeluar",
 
-            pin:ADMIN_PIN,
+        pin: ADMIN_PIN,
 
-            tanggal:tanggal,
+        tanggal: tanggal,
 
-            nominal:nominal,
+        nominal: nominal,
 
-            keperluan:keperluan
+        keperluan: keperluan
 
-        })
+    })
 
     });
 
