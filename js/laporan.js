@@ -28,6 +28,8 @@ fetch(API)
 .then(res => res.json())
 .then(data => {
 
+    console.log("DATA API:", data);
+    
     // ===============================
     // Ringkasan
     // ===============================
