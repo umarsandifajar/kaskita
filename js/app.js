@@ -81,7 +81,7 @@ fetch(API)
     // LAYANAN KELAS
     // ===========================
 
-    const layanan = document.getElementById("layananKelas");
+    const layanan = document.getElementById("layanan");
 
     if (layanan) {
 
