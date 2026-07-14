@@ -100,7 +100,7 @@ fetch(API)
                         <div>
 
                             <div class="font-semibold">
-                                🔗 ${item.judul}
+                                🔗 ${item.title}
                             </div>
 
                             <div class="text-sm text-gray-500">
