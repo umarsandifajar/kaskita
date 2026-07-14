@@ -9,162 +9,202 @@ const rupiah = (angka) => {
 };
 
 fetch(API)
-    .then(res => res.json())
-    .then(data => {
+.then(res => res.json())
+.then(data => {
 
-        console.log(data);
+    console.log(data);
 
-        // ===========================
-        // CARD SALDO
-        // ===========================
+    // ===========================
+    // CARD SALDO
+    // ===========================
 
-        document.getElementById("saldo").textContent = rupiah(data.saldo);
-        document.getElementById("masuk").textContent = rupiah(data.totalMasuk);
-        document.getElementById("keluar").textContent = rupiah(data.totalKeluar);
+    document.getElementById("saldo").textContent = rupiah(data.saldo);
+    document.getElementById("masuk").textContent = rupiah(data.totalMasuk);
+    document.getElementById("keluar").textContent = rupiah(data.totalKeluar);
 
-        // ===========================
-        // INFORMASI
-        // ===========================
+    // ===========================
+    // INFORMASI
+    // ===========================
 
-        document.getElementById("message").textContent =
-            data.message || "Tidak ada informasi.";
+    document.getElementById("message").textContent =
+        data.message || "Tidak ada informasi.";
 
-        // ===========================
-        // WHATSAPP BENDAHARA
-        // ===========================
+    // ===========================
+    // WHATSAPP BENDAHARA
+    // ===========================
 
-        const waBtn = document.getElementById("waBtn");
+    const waBtn = document.getElementById("waBtn");
 
-        if (waBtn && data.adminWa) {
-            waBtn.href = `https://wa.me/${data.adminWa}`;
-            waBtn.classList.remove("hidden");
-        }
+    if (data.adminWa) {
 
-        // ===========================
-        // INFORMASI REKENING
-        // ===========================
+        waBtn.href = `https://wa.me/${data.adminWa}`;
+        waBtn.classList.remove("hidden");
 
-        if (data.rekeningNama && data.rekeningNomor) {
+    }
 
-            document.getElementById("rekeningNama").textContent =
-                data.rekeningNama;
+    // ===========================
+    // INFORMASI REKENING
+    // ===========================
 
-            document.getElementById("rekeningNomor").textContent =
-                data.rekeningNomor;
+    document.getElementById("bank").textContent =
+        data.bank || "-";
 
-            document
-                .getElementById("btnCopyRekening")
-                .classList.remove("hidden");
+    document.getElementById("rekening").textContent =
+        data.rekening || "-";
 
-            document
-                .getElementById("btnCopyRekening")
-                .onclick = () => {
+    document.getElementById("atasNama").textContent =
+        data.atasNama || "-";
 
-                    navigator.clipboard.writeText(data.rekeningNomor);
+    const btnCopy = document.getElementById("copyRekening");
 
-                    alert("Nomor rekening berhasil disalin.");
+    if (btnCopy) {
 
-                };
+        btnCopy.onclick = () => {
 
-        }
+            if (!data.rekening) return;
 
-        // ===========================
-        // LAYANAN KELAS
-        // ===========================
+            navigator.clipboard.writeText(data.rekening.toString());
 
-        if (data.serviceTitle && data.serviceLink) {
+            btnCopy.innerHTML = "✅ Tersalin";
 
-            document.getElementById("layananKelas").innerHTML = `
-                <a href="${data.serviceLink}"
-                   target="_blank"
-                   class="block bg-blue-600 hover:bg-blue-700 text-white rounded-xl p-4 transition">
+            setTimeout(() => {
 
-                    <div class="font-semibold">
-                        🔗 ${data.serviceTitle}
-                    </div>
+                btnCopy.innerHTML = "📋 Salin";
 
-                    <div class="text-sm text-blue-100 mt-1">
-                        Klik untuk membuka layanan.
-                    </div>
+            }, 2000);
 
-                </a>
-            `;
+        };
 
-        }
+    }
 
-        // ===========================
-        // RINGKASAN
-        // ===========================
+    // ===========================
+    // LAYANAN KELAS
+    // ===========================
 
-        document.getElementById("jumlahTransaksi").textContent =
-            `${data.jumlahTransaksi || 0} Transaksi`;
+    const layanan = document.getElementById("layananKelas");
 
-        document.getElementById("update").textContent =
-            data.lastUpdate || "-";
+    if (layanan) {
 
-        // ===========================
-        // TRANSAKSI
-        // ===========================
+        layanan.innerHTML = "";
 
-        const transaksi = document.getElementById("transaksi");
+        if (data.layanan && data.layanan.length > 0) {
 
-        transaksi.innerHTML = "";
+            data.layanan.forEach(item => {
 
-        if (data.transaksi && data.transaksi.length > 0) {
-
-            data.transaksi.forEach(item => {
-
-                transaksi.innerHTML += `
-                    <div class="flex justify-between items-start py-4 border-b last:border-b-0">
+                layanan.innerHTML += `
+                    <a
+                        href="${item.url}"
+                        target="_blank"
+                        class="flex justify-between items-center p-4 rounded-xl border hover:bg-blue-50 transition mb-3">
 
                         <div>
 
                             <div class="font-semibold">
-                                ${item.jenis === "masuk" ? "🟢" : "🔴"} ${item.nama}
+                                🔗 ${item.judul}
                             </div>
 
                             <div class="text-sm text-gray-500">
-                                ${item.keterangan || "-"}
-                            </div>
-
-                            <div class="text-xs text-gray-400 mt-1">
-                                ${item.tanggal}
+                                Klik untuk membuka
                             </div>
 
                         </div>
 
-                        <div class="${item.jenis === "masuk" ? "text-green-600" : "text-red-600"} font-bold whitespace-nowrap">
-
-                            ${item.jenis === "masuk" ? "+" : "-"}
-
-                            ${rupiah(item.nominal)}
-
+                        <div class="text-blue-600 text-xl">
+                            →
                         </div>
 
-                    </div>
+                    </a>
                 `;
 
             });
 
         } else {
 
-            transaksi.innerHTML = `
-                <div class="text-center text-gray-400 py-8">
-                    Belum ada transaksi.
+            layanan.innerHTML = `
+                <div class="text-gray-400">
+                    Belum ada layanan tersedia.
                 </div>
             `;
 
         }
 
-    })
-    .catch(err => {
+    }
 
-        console.error(err);
+    // ===========================
+    // RINGKASAN
+    // ===========================
 
-        document.getElementById("transaksi").innerHTML = `
-            <div class="text-center text-red-500 py-8">
-                Gagal memuat data.
+    document.getElementById("jumlahTransaksi").textContent =
+        `${data.jumlahTransaksi} Transaksi`;
+
+    document.getElementById("update").textContent =
+        data.lastUpdate || "-";
+
+    // ===========================
+    // TRANSAKSI
+    // ===========================
+
+    const transaksi = document.getElementById("transaksi");
+
+    transaksi.innerHTML = "";
+
+    if (data.transaksi && data.transaksi.length > 0) {
+
+        data.transaksi.forEach(item => {
+
+            transaksi.innerHTML += `
+
+                <div class="flex justify-between items-start py-4 border-b last:border-b-0">
+
+                    <div>
+
+                        <div class="font-semibold">
+                            ${item.jenis === "masuk" ? "🟢" : "🔴"} ${item.nama}
+                        </div>
+
+                        <div class="text-sm text-gray-500">
+                            ${item.keterangan || "-"}
+                        </div>
+
+                        <div class="text-xs text-gray-400 mt-1">
+                            ${item.tanggal}
+                        </div>
+
+                    </div>
+
+                    <div class="${item.jenis === "masuk" ? "text-green-600" : "text-red-600"} font-bold whitespace-nowrap">
+
+                        ${item.jenis === "masuk" ? "+" : "-"}
+
+                        ${rupiah(item.nominal)}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+    } else {
+
+        transaksi.innerHTML = `
+            <div class="text-center text-gray-400 py-8">
+                Belum ada transaksi.
             </div>
         `;
 
-    });
+    }
+
+})
+.catch(err => {
+
+    console.error(err);
+
+    document.getElementById("transaksi").innerHTML = `
+        <div class="text-center text-red-500 py-8">
+            Gagal memuat data.
+        </div>
+    `;
+
+});
