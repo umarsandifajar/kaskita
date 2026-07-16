@@ -150,7 +150,13 @@ fetch(API)
 
     if (data.transaksi && data.transaksi.length > 0) {
 
-        data.transaksi.forEach(item => {
+        // Jumlah transaksi yang ditampilkan di Dashboard
+        const MAX_TRANSAKSI = 10;
+
+        // Ambil hanya 10 transaksi terbaru
+        const daftarTransaksi = data.transaksi.slice(0, MAX_TRANSAKSI);
+
+        daftarTransaksi.forEach(item => {
 
             transaksi.innerHTML += `
 
@@ -185,6 +191,34 @@ fetch(API)
             `;
 
         });
+
+    // ===========================
+    // Tombol Lihat Semua
+    // ===========================
+
+        if (data.transaksi.length > MAX_TRANSAKSI) {
+
+        transaksi.innerHTML += `
+
+        <div class="text-center py-6">
+
+            <p class="text-sm text-gray-500 mb-4">
+                Menampilkan ${MAX_TRANSAKSI} dari ${data.transaksi.length} transaksi
+            </p>
+
+            <a
+                href="laporan.html"
+                class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl transition">
+
+                📄 Lihat Seluruh Riwayat
+
+            </a>
+
+        </div>
+
+        `;
+
+        }
 
     } else {
 
