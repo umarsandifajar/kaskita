@@ -151,7 +151,7 @@ fetch(API)
     if (data.transaksi && data.transaksi.length > 0) {
 
         // Jumlah transaksi yang ditampilkan di Dashboard
-        const MAX_TRANSAKSI = 10;
+        const MAX_TRANSAKSI = 5;
 
         // Ambil hanya 10 transaksi terbaru
         const daftarTransaksi = data.transaksi.slice(0, MAX_TRANSAKSI);
