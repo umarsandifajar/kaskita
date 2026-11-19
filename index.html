@@ -2,277 +2,314 @@
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Kas Kita - Kelas 3 At-Taubah</title>
 
-    <title>Kas Kita</title>
-
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        body{
-            font-family:Inter,sans-serif;
-            background:#eef3fb;
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #0f172a;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* Custom scrollbar for mobile container */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .card-glow {
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.25), 0 8px 10px -6px rgba(37, 99, 235, 0.2);
         }
     </style>
-
 </head>
 
-<body>
+<body class="bg-slate-900 text-slate-800 antialiased min-h-screen flex justify-center items-start sm:py-6 p-0 selection:bg-blue-600 selection:text-white">
 
-<div class="max-w-5xl mx-auto p-6">
+    <!-- ================= PHONE CONTAINER ================= -->
+    <div class="w-full sm:max-w-[430px] min-h-screen bg-slate-50 flex flex-col sm:rounded-[36px] sm:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] sm:border-[6px] sm:border-slate-800/90 relative overflow-x-hidden pb-24">
 
-    <!-- ================= HEADER ================= -->
-
-    <div class="flex items-center justify-between mb-8">
-
-        <div>
-
-            <h1 class="text-4xl font-bold">
-                💰 Kas Kita
-            </h1>
-
-            <p class="text-gray-500">
-                KELAS 3 AT TAUBAH
-            </p>
-
+        <!-- Phone Top Notch Decoration (Desktop only) -->
+        <div class="hidden sm:flex justify-center pt-2.5 pb-1 bg-slate-50 sticky top-0 z-50">
+            <div class="w-24 h-4 bg-slate-900 rounded-full flex items-center justify-center">
+                <div class="w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-700"></div>
+            </div>
         </div>
 
-        <a
-            id="waBtn"
-            href="#"
-            target="_blank"
-            class="hidden inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow transition">
+        <!-- ================= TOP HEADER ================= -->
+        <header class="px-5 pt-4 pb-3 bg-white/80 backdrop-blur-md sticky top-0 sm:top-6 z-40 border-b border-slate-100 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white text-xl shadow-md shadow-blue-500/20">
+                    💰
+                </div>
+                <div>
+                    <div class="flex items-center gap-1.5">
+                        <h1 class="text-lg font-extrabold tracking-tight text-slate-900">Kas Kita</h1>
+                        <span class="text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded-md">Digital</span>
+                    </div>
+                    <p class="text-xs font-semibold text-slate-500">
+                        KELAS 3 AT TAUBAH
+                    </p>
+                </div>
+            </div>
 
-            🟢 Bendahara
+            <!-- WA Bendahara Button -->
+            <a id="waBtn" href="#" target="_blank" class="hidden inline-flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white text-xs font-bold px-3.5 py-2 rounded-full shadow-sm shadow-emerald-500/30 transition-all">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                <span>Bendahara</span>
+            </a>
+        </header>
 
-        </a>
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="px-5 pt-4 space-y-4">
 
-    </div>
+            <!-- ================= HERO SALDO CARD ================= -->
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-700 p-6 text-white card-glow">
+                <!-- Background Geometric Accents -->
+                <div class="absolute -right-8 -top-8 w-36 h-36 rounded-full bg-white/10 blur-xl pointer-events-none"></div>
+                <div class="absolute -left-8 -bottom-8 w-32 h-32 rounded-full bg-indigo-400/20 blur-lg pointer-events-none"></div>
 
-    <!-- ================= SALDO ================= -->
+                <div class="relative z-10 flex flex-col justify-between min-h-[145px]">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-[11px] font-bold tracking-wider uppercase text-blue-100 bg-white/15 px-2.5 py-1 rounded-full backdrop-blur-sm inline-flex items-center gap-1">
+                                <span>🪙</span> Saldo Kas Aktif
+                            </span>
+                        </div>
+                        <div class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-300 bg-emerald-950/40 px-2 py-0.5 rounded-full border border-emerald-400/30">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span>Live</span>
+                        </div>
+                    </div>
 
-    <div class="bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl p-8 text-white shadow-xl">
+                    <div class="my-2">
+                        <h2 id="saldo" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white drop-shadow-sm">
+                            Rp0
+                        </h2>
+                    </div>
 
-        <p class="text-lg">
-            Saldo Kas
-        </p>
+                    <div class="pt-3 border-t border-white/15 flex items-center justify-between text-xs text-blue-100">
+                        <span class="flex items-center gap-1 opacity-90">
+                            <span>🏫</span> Kas Angkatan 2026
+                        </span>
+                        <a href="laporan.html" class="inline-flex items-center gap-1 text-white font-semibold hover:underline">
+                            Riwayat <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-        <h2 id="saldo" class="text-5xl font-bold mt-3">
-            Rp0
-        </h2>
+            <!-- ================= PEMASUKAN & PENGELUARAN ================= -->
+            <div class="grid grid-cols-2 gap-3">
+                <!-- Pemasukan -->
+                <div class="bg-white rounded-2xl p-4 border border-emerald-100 shadow-sm relative overflow-hidden">
+                    <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm mb-2">
+                        ↓
+                    </div>
+                    <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                        Pemasukan
+                    </p>
+                    <h3 id="masuk" class="text-base sm:text-lg font-bold text-emerald-600 mt-0.5 truncate">
+                        Rp0
+                    </h3>
+                </div>
 
-    </div>
+                <!-- Pengeluaran -->
+                <div class="bg-white rounded-2xl p-4 border border-rose-100 shadow-sm relative overflow-hidden">
+                    <div class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-sm mb-2">
+                        ↑
+                    </div>
+                    <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                        Pengeluaran
+                    </p>
+                    <h3 id="keluar" class="text-base sm:text-lg font-bold text-rose-600 mt-0.5 truncate">
+                        Rp0
+                    </h3>
+                </div>
+            </div>
 
-    <!-- ================= CARD ================= -->
-
-    <div class="grid md:grid-cols-3 gap-5 mt-6">
-
-        <div class="bg-white rounded-3xl p-6 shadow">
-
-            <p class="text-gray-500">
-                Pemasukan
-            </p>
-
-            <h3 id="masuk" class="text-3xl font-bold text-green-600 mt-2">
-                Rp0
-            </h3>
-
-        </div>
-
-        <div class="bg-white rounded-3xl p-6 shadow">
-
-            <p class="text-gray-500">
-                Pengeluaran
-            </p>
-
-            <h3 id="keluar" class="text-3xl font-bold text-red-500 mt-2">
-                Rp0
-            </h3>
-
-        </div>
-
-        <div class="bg-white rounded-3xl p-6 shadow">
-
-            <p class="text-gray-500">
-                📢 Informasi
-            </p>
-
-            <p id="message" class="font-semibold text-gray-700 mt-3">
-                Memuat informasi...
-            </p>
-
-        </div>
-
-    </div>
-
-    <!-- ================= PEMBAYARAN ================= -->
-
-    <div class="bg-white rounded-3xl shadow p-6 mt-6">
-
-        <h2 class="text-xl font-bold mb-5">
-            💳 Pembayaran Kas
-        </h2>
-
-        <div class="grid md:grid-cols-3 gap-6">
-
-            <div>
-
-                <p class="text-sm text-gray-500">
-                    Bank
+            <!-- ================= INFORMASI / REMINDER ================= -->
+            <div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-4 border border-amber-200/80 shadow-sm">
+                <div class="flex items-center gap-2 mb-1.5">
+                    <span class="text-base">📢</span>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-amber-900">
+                        Informasi Kelas
+                    </h3>
+                </div>
+                <p id="message" class="text-xs sm:text-sm font-medium text-amber-950 leading-relaxed">
+                    Memuat informasi...
                 </p>
-
-                <h3 id="bank" class="text-lg font-semibold mt-1">
-                    -
-                </h3>
-
             </div>
 
-            <div>
-
-                <p class="text-sm text-gray-500">
-                    Nomor Rekening
-                </p>
-
-                <div class="flex items-center gap-3 mt-1">
-
-                    <span
-                        id="rekening"
-                        class="text-lg font-bold tracking-wide">
-
-                        -
-
+            <!-- ================= PEMBAYARAN KAS ================= -->
+            <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-2">
+                        <span class="text-lg">💳</span>
+                        <h2 class="text-sm font-bold text-slate-900 uppercase tracking-wider">
+                            Pembayaran Kas
+                        </h2>
+                    </div>
+                    <span class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
+                        Transfer Bank
                     </span>
-
-                    <button
-                        id="copyRekening"
-                        class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-3 py-1 rounded-lg transition">
-
-                        📋 Salin
-
-                    </button>
-
                 </div>
 
+                <!-- Virtual Card Container -->
+                <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-4 text-white shadow-inner relative overflow-hidden">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-rose-400 -ml-1.5 opacity-80"></span>
+                            <span class="text-[11px] font-bold text-slate-300 ml-1">KAS KITA PAY</span>
+                        </div>
+                        <span id="bank" class="text-xs font-bold bg-white/10 px-2 py-0.5 rounded text-white tracking-wider">
+                            -
+                        </span>
+                    </div>
+
+                    <div class="my-2">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest">Nomor Rekening</p>
+                        <div class="flex items-center justify-between mt-1">
+                            <span id="rekening" class="text-base sm:text-lg font-mono font-bold tracking-wider text-amber-300 select-all">
+                                -
+                            </span>
+                            <button id="copyRekening" class="inline-flex items-center gap-1 bg-white/20 hover:bg-white/30 active:scale-95 text-white text-xs font-semibold px-2.5 py-1 rounded-lg backdrop-blur-sm transition">
+                                📋 Salin
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 border-t border-slate-700/60 flex justify-between items-end text-xs">
+                        <div>
+                            <p class="text-[9px] text-slate-400 uppercase">Atas Nama</p>
+                            <p id="atasNama" class="font-bold text-slate-200 mt-0.5">
+                                -
+                            </p>
+                        </div>
+                        <span class="text-[10px] text-slate-400 italic">Resmi Kelas</span>
+                    </div>
+                </div>
             </div>
 
-            <div>
+            <!-- ================= LAYANAN KELAS ================= -->
+            <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-lg">🔗</span>
+                    <h2 class="text-sm font-bold text-slate-900 uppercase tracking-wider">
+                        Layanan Kelas
+                    </h2>
+                </div>
 
-                <p class="text-sm text-gray-500">
-                    Atas Nama
-                </p>
-
-                <h3
-                    id="atasNama"
-                    class="text-lg font-semibold mt-1">
-
-                    -
-
-                </h3>
-
+                <div id="layanan" class="space-y-2">
+                    <div class="text-xs text-slate-400 py-3 text-center">
+                        Memuat layanan...
+                    </div>
+                </div>
             </div>
 
-        </div>
+            <!-- ================= TRANSAKSI TERBARU ================= -->
+            <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-2">
+                        <span class="text-lg">📜</span>
+                        <h2 class="text-sm font-bold text-slate-900 uppercase tracking-wider">
+                            Transaksi Terbaru
+                        </h2>
+                    </div>
+                    <a href="laporan.html" class="text-xs font-bold text-blue-600 hover:text-blue-700">
+                        Lihat Semua →
+                    </a>
+                </div>
+
+                <div id="transaksi" class="divide-y divide-slate-100">
+                    <div class="text-xs text-slate-400 py-6 text-center">
+                        Memuat riwayat transaksi...
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= RINGKASAN & STATUS DATA ================= -->
+            <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-lg">📊</span>
+                    <h2 class="text-sm font-bold text-slate-900 uppercase tracking-wider">
+                        Status & Ringkasan
+                    </h2>
+                </div>
+
+                <div class="space-y-3 text-xs">
+                    <div class="flex justify-between items-center py-1 border-b border-slate-50">
+                        <span class="text-slate-500">Total Transaksi</span>
+                        <strong id="jumlahTransaksi" class="text-slate-900 font-bold">0</strong>
+                    </div>
+
+                    <div class="flex justify-between items-center py-1 border-b border-slate-50">
+                        <span class="text-slate-500">Terakhir Diperbarui</span>
+                        <strong id="update" class="text-slate-700 font-mono">-</strong>
+                    </div>
+
+                    <div class="flex justify-between items-center py-1">
+                        <span class="text-slate-500">Koneksi Data</span>
+                        <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200/80 px-2.5 py-0.5 rounded-full text-[11px] font-semibold">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            🟢 Sinkron Spreadsheet
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- ================= STICKY BOTTOM NAVIGATION ================= -->
+        <nav class="fixed sm:absolute bottom-0 left-0 right-0 max-w-full sm:max-w-[430px] mx-auto bg-white/90 backdrop-blur-lg border-t border-slate-200/80 px-6 py-2.5 z-50 flex items-center justify-around sm:rounded-b-[30px]">
+            <!-- Beranda (Active) -->
+            <a href="index.html" class="flex flex-col items-center gap-1 text-blue-600 transition-all">
+                <span class="text-lg">🏠</span>
+                <span class="text-[10px] font-bold">Beranda</span>
+            </a>
+
+            <!-- Laporan -->
+            <a href="laporan.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-700 transition-all">
+                <span class="text-lg">📄</span>
+                <span class="text-[10px] font-semibold">Laporan</span>
+            </a>
+
+            <!-- Admin -->
+            <a href="admin.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-700 transition-all">
+                <span class="text-lg">🔒</span>
+                <span class="text-[10px] font-semibold">Admin</span>
+            </a>
+        </nav>
 
     </div>
 
-    <!-- ================= LAYANAN ================= -->
-
-    <div class="bg-white rounded-3xl shadow p-6 mt-6">
-
-        <h2 class="text-xl font-bold mb-5">
-            🔗 Layanan Kelas
-        </h2>
-
-        <div id="layanan">
-
-            <div class="text-gray-400">
-                Belum ada layanan.
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- ================= KONTEN ================= -->
-
-    <div class="grid lg:grid-cols-2 gap-6 mt-8">
-
-        <!-- TRANSAKSI -->
-
-        <div class="bg-white rounded-3xl p-6 shadow">
-
-            <h2 class="text-xl font-bold mb-5">
-                📜 Transaksi Terbaru
-            </h2>
-
-            <div id="transaksi"></div>
-
-        </div>
-
-        <!-- RINGKASAN -->
-
-        <div class="bg-white rounded-3xl p-6 shadow">
-
-            <h2 class="text-xl font-bold mb-5">
-                📊 Ringkasan
-            </h2>
-
-            <div class="space-y-5">
-
-                <div class="flex justify-between">
-
-                    <span class="text-gray-500">
-                        Total Transaksi
-                    </span>
-
-                    <strong id="jumlahTransaksi">
-                        0
-                    </strong>
-
-                </div>
-
-                <div class="flex justify-between">
-
-                    <span class="text-gray-500">
-                        Terakhir Diperbarui
-                    </span>
-
-                    <strong id="update">
-                        -
-                    </strong>
-
-                </div>
-
-                <div class="flex justify-between">
-
-                    <span class="text-gray-500">
-                        Status Data
-                    </span>
-
-                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
-
-                        🟢 Sinkron
-
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<script src="js/app.js"></script>
+    <!-- Script Application Logic -->
+    <script src="js/app.js"></script>
 
 </body>
 </html>
